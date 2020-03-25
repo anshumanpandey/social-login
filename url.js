@@ -35,7 +35,7 @@ class Users {
                 })
                 .then(() => {
                     console.log('data written!');
-                    ctx.response.body = 'window.close()'
+                    ctx.response.set('Location', `/`)
                 })
                 .catch(error => {
                     if (error.response) {
