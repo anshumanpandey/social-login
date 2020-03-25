@@ -1,6 +1,7 @@
-const storage = require('node-sessionstorage')
 const axios = require('axios')
 const queryString = require('query-string');
+const JSONdb = require('simple-json-db');
+const db = new JSONdb('./database.json');
 
 class Users {
     middleware() {
@@ -30,9 +31,11 @@ class Users {
                 .then(r => {
                     console.log(`graph ok`)
                     console.log(r.data)
-                    storage.setItem("instagram_user", JSON.stringify(r.data))
-                    ctx.response.redirect('/');
-
+                    return db.set('user', r.data);
+                })
+                .then(() => {
+                    console.log('data written!');
+                    ctx.response.body = 'window.close()'
                 })
                 .catch(error => {
                     if (error.response) {
@@ -47,8 +50,10 @@ class Users {
             router.get('/instagram_user', function (ctx) {
                 ctx.response.type = 'json'
 
-                if (storage.getItem("instagram_user")) {
-                    ctx.response.body = JSON.parse(storage.getItem("instagram_user"))
+                const user = db.get('user');
+
+                if (user.id) {
+                    ctx.response.body = user
                 } else {
                     ctx.response.status = 401
                     ctx.response.body = { error: 'User not logged in with instagram' }

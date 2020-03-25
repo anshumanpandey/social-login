@@ -17,10 +17,9 @@ window.fbAsyncInit = function () {
 
 function onFBsucceed(response) {
     const FBStatus = $('#FBStatus')
-    FBStatus.text(`Your facebook status is <code>${response.status}</code>. Login!`);
+    FBStatus.text(`Your facebook status is ${response.status}. Login!`);
     if (response.status === 'connected') {
         FB.api('/me', function (response) {
-            console.log(response);
             $(`<h5>Welcome ${response.name}</h5>`).appendTo('#facebook')
             $(`<h5>Your FB ID is ${response.id}</h5>`).appendTo('#facebook')
         });

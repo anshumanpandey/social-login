@@ -12,11 +12,13 @@ $(document).ready(() => {
     })
         .done(function (data) {
             console.log(data)
-            if (console && console.log) {
-                console.log("Sample of data:", data.slice(0, 100));
-            }
+            $('#instagram').html(`
+            <h3>Instagram ID: ${data.id}</h3>
+            <h3>Instagram username: ${data.username}</h3>
+            `);
+
         })
         .fail(function() {
-            $('<button onclick="openWindow()" type="button" class="btn btn-dark">Instagram</button>').appendTo('#instagram');
+            $('#instagram').html('<button onclick="openWindow()" type="button" class="btn btn-dark">Instagram</button>');
         })
 });
