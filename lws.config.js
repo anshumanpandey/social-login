@@ -1,5 +1,5 @@
 module.exports = {
-  port: 8050,
+  port: 3010,
   https: true,
   directory: './',
   stack: [

@@ -1,14 +1,13 @@
 function openWindow() {
     const clientID = '1133493423650865'
-    const redirect_uri = `https://127.0.0.1:8050/instagram`
     const scopes = ['user_profile', 'user_media']
 
-    window.open(`https://api.instagram.com/oauth/authorize?client_id=${clientID}&redirect_uri=${redirect_uri}&scope=${scopes.join(',')}&response_type=code`)
+    window.open(`https://api.instagram.com/oauth/authorize?client_id=${clientID}&redirect_uri=${REDIRECT_URI}&scope=${scopes.join(',')}&response_type=code`)
 }
 
 $(document).ready(() => {
     $.ajax({
-        url: "https://127.0.0.1:8050/instagram_user",
+        url: `${window.location.origin}/instagram_user`,
     })
         .done(function (data) {
             console.log(data)

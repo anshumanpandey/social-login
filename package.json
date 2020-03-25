@@ -4,7 +4,7 @@
   "description": "",
   "main": "FB.js",
   "scripts": {
-    "start": "ws --hostname 127.0.0.1",
+    "start": "ws",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
