@@ -2,6 +2,7 @@ const axios = require('axios')
 const queryString = require('query-string');
 const JSONdb = require('simple-json-db');
 const db = new JSONdb('./database.json');
+const ENV = require('./ENV.js');
 
 class Users {
     middleware() {
@@ -17,7 +18,7 @@ class Users {
                         client_id: '1133493423650865',
                         client_secret: 'dd1657b0a5c5485b93fe6d1cd97be8e4',
                         grant_type: 'authorization_code',
-                        redirect_uri: `https://127.0.0.1:8050/instagram`,
+                        redirect_uri: ENV.module,
                         code: code
                     })
                 })
