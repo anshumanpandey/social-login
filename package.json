@@ -1,0 +1,23 @@
+{
+  "name": "social-login",
+  "version": "1.0.0",
+  "description": "",
+  "main": "FB.js",
+  "scripts": {
+    "start": "ws --hostname 127.0.0.1",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "koa-route": "^3.2.0",
+    "local-web-server": "^4.0.0",
+    "lws": "^3.0.0",
+    "lws-body-parser": "^2.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "node-sessionstorage": "^1.0.0",
+    "query-string": "^6.11.1"
+  }
+}
