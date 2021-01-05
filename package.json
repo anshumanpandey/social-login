@@ -16,7 +16,7 @@
     "lws-body-parser": "^2.0.0"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "node-sessionstorage": "^1.0.0",
     "query-string": "^6.11.1",
     "simple-json-db": "^1.2.2"
